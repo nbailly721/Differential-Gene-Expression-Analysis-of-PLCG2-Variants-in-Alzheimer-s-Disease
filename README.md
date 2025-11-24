@@ -26,7 +26,7 @@ Identification of significantly upregulated and downregulated genes
 
 ##📈 Key Results
 
-Rregulated_genes.csv: List of genes significantly upregulated or downregulated in risk vs protective variants
+Rregulated_genes.csv: List of genes significantly upregulated/downregulated in risk variants compared to protective variants
 
 Differential expression of genes between protective and risk variants.png
 
