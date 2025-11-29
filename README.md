@@ -1,45 +1,58 @@
                                           ######Differential Gene Expression Analysis of PLCG2 Variants in Alzheimer’s Disease######
--This project analyzes differential gene expression between risk and protective PLCG2 variants in Alzheimer's disease using RNA count data.
 
-##📁 Dataset
+**Description**
 
-GSE308813_20240829_LB_rna_counts_only.csv (Source: NCBI. Acession number:GSE308813) — Raw RNA counts for multiple samples across different genotypes.
+This project investigates differential gene expression patterns associated with risk and protective PLCG2 variants in Alzheimer’s disease using raw RNA count data. The workflow uses R for data preprocessing, normalization, statistical testing, and visualization of variant-specific transcriptional changes.
 
-##🔧 Tools & Packages
+**Workflow Overview**
 
-Language: R
-Packages: R.utils, tidyverse, DESeq2
+     1. Data Preparation and Filtering (R Script)
 
-##📊 Workflow Overview
+Load raw RNA count data and rename sample columns for consistency.
 
-Data loading and renaming of columns for clarity
+Filter out genes with low expression (<100 total reads) to reduce noise.
 
-Filtering genes with low counts (<100 total reads)
+Construct metadata describing sample genotypes (WT, KO, risk, protective).
 
-Metadata creation to label sample groups (WT, KO, risk, prot)
+     2. Differential Expression Analysis (R Script)
 
-Differential expression analysis using DESeq2 comparing risk vs protective variants
+Use DESeq2 for normalization and model fitting.
 
-Visualization of results with MA plot
+Perform contrast analysis comparing PLCG2 risk vs. protective variants.
 
-Identification of significantly upregulated and downregulated genes
+Generate MA plots and extract significantly upregulated and downregulated genes.
 
-##📈 Key Results
+**Datasets Used**
 
-regulated_genes.csv: List of genes significantly upregulated/downregulated in risk variants compared to protective variants
+GSE308813_20240829_LB_rna_counts_only.csv
+(Source: NCBI, Accession: GSE308813) — Raw RNA count matrix for samples carrying various PLCG2 genotypes.
 
-Differential expression of genes between protective and risk variants.png
+**Packages Used**
 
-##📂 Files
+R Environment
 
-differential_expression_analysis.R: Main analysis script
+R.utils – Data handling
 
-##🧠 Notes
+tidyverse – Data manipulation and plotting
 
-Filtering ensures only sufficiently expressed genes are analyzed to reduce noise.
+DESeq2 – Differential expression analysis
 
-DESeq2 normalization accounts for library size and variability.
+**Key Results**
 
-Results focus on contrast between risk and protective PLCG2 variants to understand molecular impact.
+regulated_genes.csv – Significantly upregulated and downregulated genes in risk vs. protective PLCG2 variants
 
-Script includes detailed comments for reproducibility and clarity.
+Differential expression of genes between protective and risk variants.png – MA plot visualization
+
+Files in This Repository
+
+differential_expression_analysis.R – Main R script for preprocessing, differential expression testing, and visualization
+
+**Important Notes**
+
+Gene filtering improves statistical robustness by removing low-count noise.
+
+DESeq2 normalization accounts for library size, dispersion, and sample variability.
+
+Analysis highlights molecular differences between PLCG2 risk and protective variants relevant to Alzheimer’s disease research.
+
+Script includes detailed comments to ensure reproducibility.
